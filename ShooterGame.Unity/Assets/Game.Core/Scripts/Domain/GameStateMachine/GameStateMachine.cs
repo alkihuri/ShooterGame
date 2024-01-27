@@ -11,7 +11,12 @@ public class GameStateMachine : MonoSinglethon<GameStateMachine>
     public StartGameState StartGameState { get; private set; }
     public OnGameState OnGameState { get; private set; }
 
+    public DataContainer CurrentGameData;
 
+    public void Innit(DataContainer data)
+    {
+        CurrentGameData = data;
+    }
     private void Awake()
     {
         Init();
@@ -20,7 +25,7 @@ public class GameStateMachine : MonoSinglethon<GameStateMachine>
     public void Init()
     {
         StartGameState = new StartGameState();
-        OnGameState = new OnGameState(); 
+        OnGameState = new OnGameState();
         ChangeState(StartGameState);
     }
 
