@@ -1,6 +1,11 @@
-﻿public interface IBallService
-{
-    void PhysicUpdate();    
+﻿using UnityEngine;
 
-    void Innit();   
+public interface IBallService
+{ 
+    void Innit(IMouseAxesInputService mouseAxesInputService, ICameraService cameraService, GameObject view);
+
+    void PhysicUpdate(Rigidbody rBody);
+    void Hide();
+    void Show();
+    void Shoot(float power);
 }

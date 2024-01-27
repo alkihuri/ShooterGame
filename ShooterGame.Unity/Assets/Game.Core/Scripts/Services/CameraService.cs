@@ -2,28 +2,32 @@
 
 public class CameraService : ICameraService
 {
-    public IMouseAxesInputService inputService;
-    [SerializeField,Range(0.1f,100f)] float sensitivity = 2.0f;
+    public IMouseAxesInputService InputService;
 
-    public void Start()
+    public GameObject View { get; private set; }
+
+    [SerializeField, Range(0.1f, 100f)] float sensitivity = 2.0f;
+
+    public Transform Trasform { get; private set; }
+
+    public Vector3 GetCameraForward()
     {
-        throw new System.NotImplementedException();
+        return Trasform.forward;    
     }
 
-   
-    void Update(Transform transform)
-    { 
-        float mouseX = inputService.GetMouseX();
-        float mouseY = inputService.GetMouseY(); 
-        transform.Rotate(Vector3.up * mouseX * sensitivity);
-        transform.Rotate(Vector3.left * mouseY * sensitivity); 
-        Vector3 currentRotation = transform.eulerAngles;
-        currentRotation.x = Mathf.Clamp(currentRotation.x, 0f, 180f);
-        transform.eulerAngles = currentRotation;
-    }
-
-    void ICameraService.Update(Transform transform)
+    public Vector3 GetCameraPosition()
     {
-        throw new System.NotImplementedException();
+        return Trasform.position;
     }
+
+    public void Innit(IMouseAxesInputService inputService, GameObject view)
+    {
+        InputService = inputService; 
+        View = view;    
+        Trasform = View.transform;  
+    }
+
+     
+
+    
 }

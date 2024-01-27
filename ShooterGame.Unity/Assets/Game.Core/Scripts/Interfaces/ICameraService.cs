@@ -2,5 +2,7 @@
 
 public interface ICameraService
 {
-    public void Update(Transform transform);
+    Vector3 GetCameraForward();
+    Vector3 GetCameraPosition();
+    public void Innit(IMouseAxesInputService inputService, GameObject view);
 }
