@@ -4,8 +4,7 @@ public class StartGameState : GameState
 {
     public override void Enter(GameStateMachine stateMachine)
     {
-        Debug.Log("Game is stated");
-
+        Debug.Log("Game is stated"); 
     }
 
     public override void Exit(GameStateMachine stateMachine)

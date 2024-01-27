@@ -4,10 +4,10 @@ public class Bootstrap
 
     public Bootstrap()
     {
-        var mouseAxesInputService = new WindowsMouseInputController();
-        var cameraService = new CameraController();
-        var ballService = new BallController();
-        var gunService = new GunController();
+        var mouseAxesInputService = new WindowsMouseInputService();
+        var cameraService = new CameraService();
+        var ballService = new BallService();
+        var gunService = new GunService();
 
         Data = new DataContainer(mouseAxesInputService, cameraService, ballService, gunService);
     }

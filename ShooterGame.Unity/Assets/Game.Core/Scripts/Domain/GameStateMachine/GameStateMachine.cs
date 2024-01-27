@@ -26,6 +26,10 @@ public class GameStateMachine : MonoSinglethon<GameStateMachine>
     {
         StartGameState = new StartGameState();
         OnGameState = new OnGameState();
+
+
+
+
         ChangeState(StartGameState);
     }
 

@@ -1,11 +1,17 @@
 ﻿using UnityEngine;
 
-public class CameraController : MonoBehaviour, ICameraService
+public class CameraService : ICameraService
 {
     public IMouseAxesInputService inputService;
-    [SerializeField,Range(0.1f,100f)] float sensitivity = 2.0f;  
+    [SerializeField,Range(0.1f,100f)] float sensitivity = 2.0f;
 
-    void Update()
+    public void Start()
+    {
+        throw new System.NotImplementedException();
+    }
+
+   
+    void Update(Transform transform)
     { 
         float mouseX = inputService.GetMouseX();
         float mouseY = inputService.GetMouseY(); 
@@ -14,5 +20,10 @@ public class CameraController : MonoBehaviour, ICameraService
         Vector3 currentRotation = transform.eulerAngles;
         currentRotation.x = Mathf.Clamp(currentRotation.x, 0f, 180f);
         transform.eulerAngles = currentRotation;
+    }
+
+    void ICameraService.Update(Transform transform)
+    {
+        throw new System.NotImplementedException();
     }
 }
