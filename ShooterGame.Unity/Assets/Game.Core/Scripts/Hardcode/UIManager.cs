@@ -12,7 +12,11 @@ public class UIManager : MonoSinglethon<UIManager>
 
     private void Start()
     {
-        _score.text = "score:" + PlayerPrefs.GetInt("Score");   // TODO: use events
+        _score.text = "score:" + PlayerPrefs.GetInt("Score");   // TODO: use events 
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
     }
 
     public void UpdateGunPower(float power)
@@ -22,5 +26,15 @@ public class UIManager : MonoSinglethon<UIManager>
     public void UpdateScore(IBallService ball)
     {
         _score.text = "score:" + PlayerPrefs.GetInt("Score");
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true; 
+            Application.Quit();
+        }
     }
 }

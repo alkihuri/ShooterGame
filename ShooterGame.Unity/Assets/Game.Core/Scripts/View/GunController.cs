@@ -15,6 +15,9 @@ public class GunController : MonoBehaviour
     {
         this.mouseAxesInputService = mouseAxesInputService;
         this.gunService = gunService;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;   
     }
 
     private void Update()

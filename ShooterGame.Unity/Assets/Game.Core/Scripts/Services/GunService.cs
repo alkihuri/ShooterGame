@@ -53,15 +53,10 @@ public class GunService : IGunService
     {
         /// rotate transform by y axes  
         GunTransform = transform;
-        float mouseX = mouseService.GetMouseX();
-        float mouseY = mouseService.GetMouseY();
+        float mouseX = mouseService.GetMouseX();   
         transform.Rotate(0, mouseX * sensitivity, 0);
-
         Vector3 currentRotation = transform.eulerAngles; 
-
-        // clamp rotation by y axes beween -130 to -30
-        //currentRotation.y = Mathf.Clamp(currentRotation.y - mouseY * sensitivity, -130, -30);   
-
+        // clamp rotation by y axes beween -130 to -30 
         transform.eulerAngles = currentRotation;
     }
 }
