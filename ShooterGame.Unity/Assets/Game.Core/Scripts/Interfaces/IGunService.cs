@@ -8,4 +8,8 @@ public interface IGunService
     public void Innit(IMouseAxesInputService imouseservice, ICameraService cameraservice);
     void InnitBalls(List<IBallService> balls);
     public void Update(Transform transform);
+
+    public Transform GetGunTransform();
+
+    public void SetGunTransform(Transform transform);
 }

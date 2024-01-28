@@ -8,40 +8,50 @@ public class DataContainer
     public ICameraService CameraService { get; private set; }
     public IBallService BallService { get; private set; }
     public IGunService GunService { get; private set; }
+    public IGateService GateService { get; private set; }
 
 
 
     public List<IBallService> ServiceBalls = new List<IBallService>();
     public GameObject Gun { get; set; }
     public GameObject GameCamera { get; }
+    public GameObject Gate { get; }
 
-    public DataContainer(IMouseAxesInputService mouseAxesInputService, ICameraService cameraService, IBallService ballService, IGunService gunService)
+    public DataContainer(IMouseAxesInputService mouseAxesInputService, ICameraService cameraService, IBallService ballService, IGunService gunService, IGateService gateService)
     {
         MouseAxesInputService = mouseAxesInputService;
         CameraService = cameraService;
         BallService = ballService; // TODO: remove
         GunService = gunService;
+        GateService = gateService;
+        Gun = GameObject.Instantiate(Resources.Load<GameObject>("Gun"));
 
+        GunService.InnitBalls(ServiceBalls);
+        GunService.SetGunTransform(Gun.transform);
+
+        Gun.AddComponent<GunController>().Innit(MouseAxesInputService, GunService);
+        GameCamera = GameObject.Instantiate(Resources.Load<GameObject>("MainCamera"));
+        CameraService.Innit(MouseAxesInputService, GameCamera);
+        GameCamera.GetComponent<CameraController>().Innit(CameraService);
+        Gate = GameObject.Instantiate(Resources.Load<GameObject>("Gate"));
+        Gate.GetComponent<GateController>().Innit(GateService);
         GameObject ballRoot = new GameObject("BallRoot");
+
+        // ballRoot.transform.SetParent(Gun.transform, true);
         /// pool of objects 
         for (int i = 0; i < 15; i++)
         {
 
-            var newBall = GameObject.Instantiate(Resources.Load<GameObject>("Ball"), ballRoot.transform);
             var newBallService = new BallService();
-            newBall.GetComponent<BallConrtoller>().Innit(newBallService);   
-            newBallService.Innit(MouseAxesInputService, CameraService, newBall);
+            var newBall = GameObject.Instantiate(Resources.Load<GameObject>("Ball"), ballRoot.transform);
+            newBallService.Innit(MouseAxesInputService, CameraService, newBall, GunService);
+            newBall.GetComponent<BallConrtoller>().Innit(newBallService);
             ServiceBalls.Add(newBallService);
-
-            if (i > 0) ServiceBalls[i].Hide();
+            ServiceBalls[i].Hide();
         }
+         
 
-        GunService.InnitBalls(ServiceBalls);
-        Gun = GameObject.Instantiate(Resources.Load<GameObject>("Gun"));
-        Gun.AddComponent<GunController>().Innit(MouseAxesInputService, GunService); 
-        GameCamera = GameObject.Instantiate(Resources.Load<GameObject>("MainCamera"));
-        CameraService.Innit(MouseAxesInputService, GameCamera);
-        GameCamera.GetComponent<CameraController>().Innit(CameraService);
+
     }
 }
 

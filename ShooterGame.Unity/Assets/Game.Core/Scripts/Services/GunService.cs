@@ -13,7 +13,12 @@ public class GunService : IGunService
     public List<IBallService> Balls { get; set; }
 
     public int CurrentBallIndex { get; set; } = 0;
-    public Transform Trasform { get; private set; }
+    public Transform GunTransform { get; private set; }
+
+    public Transform GetGunTransform()
+    {
+        return GunTransform;
+    }
 
     public void Innit(IMouseAxesInputService mouseservice, ICameraService cameraservice)
     {
@@ -26,26 +31,37 @@ public class GunService : IGunService
     public void InnitBalls(List<IBallService> balls)
     {
         Balls = balls;
+
+        CursorLockMode cursorLockMode = CursorLockMode.Locked;
+    }
+
+    public void SetGunTransform(Transform transform)
+    {
+        GunTransform = transform;
     }
 
     public void Shoot(float power)
     {
-       
+
         CurrentBallIndex = (CurrentBallIndex + 1) % Balls.Count;
         Balls[CurrentBallIndex].Show();
-        Balls[CurrentBallIndex].Shoot(power);
+        Balls[CurrentBallIndex].Shoot(power, GunTransform.forward);
 
     }
 
     public void Update(Transform transform)
     {
-        Trasform = transform;
+        /// rotate transform by y axes  
+        GunTransform = transform;
         float mouseX = mouseService.GetMouseX();
         float mouseY = mouseService.GetMouseY();
-        transform.Rotate(Vector3.up * mouseX * sensitivity);
-        transform.Rotate(Vector3.left * mouseY * sensitivity);
-        Vector3 currentRotation = transform.eulerAngles;
-        currentRotation.x = Mathf.Clamp(currentRotation.x, 0f, 180f);
+        transform.Rotate(0, mouseX * sensitivity, 0);
+
+        Vector3 currentRotation = transform.eulerAngles; 
+
+        // clamp rotation by y axes beween -130 to -30
+        //currentRotation.y = Mathf.Clamp(currentRotation.y - mouseY * sensitivity, -130, -30);   
+
         transform.eulerAngles = currentRotation;
     }
 }
