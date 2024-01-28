@@ -7,15 +7,18 @@ public class BallConrtoller : MonoBehaviour
 
     IBallService ballService;
 
-    Rigidbody rigidbody;    
+    Rigidbody rigidbody;
+
+    public IBallService BallService { get => ballService; set => ballService = value; }
+
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
     }
     public void Innit(IBallService ballService)
     {
-        this.ballService = ballService; 
+        this.BallService = ballService; 
     }
     // Update is called once per frame
-    void FixedUpdate() => ballService?.PhysicUpdate(rigidbody);
+    void FixedUpdate() => BallService?.PhysicUpdate(rigidbody);
 }

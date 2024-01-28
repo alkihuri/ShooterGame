@@ -172,7 +172,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 18376
+  controlID: 23582
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -192,8 +192,8 @@ MonoBehaviour:
     y: 0
     width: 234.4
     height: 458.4
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -238,7 +238,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 3020ffff7026ffff6a64ffff2889ffffea8affff568cffff42bbffff4abbffff78c0ffff80c0ffffe4e9ffffaceaffff2cfbffff84590000aa590000ae590000b2590000
+      m_ExpandedIDs: 76d4feff7ad4fefff20bfffffc0bffff180cffff260cffff2e0cffff520cffff3020ffff7026ffff6a64ffff2889ffffea8affff568cffff42bbffff4abbffff78c0ffff80c0ffffe4e9ffffaceaffff2cfbffff84590000aa590000ae590000b2590000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -748,9 +748,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -2.0722725, y: 0.7108028, z: -0.2526288}
+    m_Target: {x: -0.6667231, y: 8.489015, z: -13.945761}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0}
+    m_Value: {x: 0.65657485, y: -0.31591678, z: -0.3453442}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -796,13 +796,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.34899694, y: -0.22481121, z: 0.08660999, w: 0.9056592}
+    m_Target: {x: 0.22080237, y: -0.4048428, z: 0.10137379, w: 0.8815518}
     speed: 2
-    m_Value: {x: 0.07583686, y: -0.8917487, z: 0.16283588, w: 0.4153522}
+    m_Value: {x: 0.10181604, y: 0.88196343, z: -0.22315118, w: 0.4024643}
   m_Size:
-    m_Target: 2.4814725
+    m_Target: 5.813741
     speed: 2
-    m_Value: 5.196624
+    m_Value: 1.6583124
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -925,7 +925,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Game.Core/Resources
+    - Assets/Game.Core/Materials
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -933,15 +933,15 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Game.Core/Resources
+  - Assets/Game.Core/Materials
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\alkih\Documents\GitHub\ShooterGame\ShooterGame.Unity
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 2a5a0000
-    m_LastClickedID: 23082
+    m_SelectedIDs: 2e600000
+    m_LastClickedID: 24622
     m_ExpandedIDs: 00000000f8590000fa590000fc590000085a0000e05d0000e85d0000ec5d000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -997,7 +997,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1096,7 +1096,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 30044
+  m_LastSelectedObjectID: -67294
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1116,8 +1116,8 @@ MonoBehaviour:
     y: 0
     width: 390.40002
     height: 264.4
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 2}

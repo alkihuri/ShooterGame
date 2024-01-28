@@ -13,9 +13,12 @@ public class GateController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<IBallService>() != null)
+        if (collision.gameObject.GetComponent<BallConrtoller>())
         {
-            gateService.TakeBall(collision.gameObject.GetComponent<IBallService>());
+            var ball = collision.gameObject.GetComponent<BallConrtoller>();
+            var ballService = ball.BallService;
+
+            gateService.TakeBall(ballService);
         }
     }
 

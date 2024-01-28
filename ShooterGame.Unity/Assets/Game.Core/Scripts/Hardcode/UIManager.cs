@@ -10,6 +10,11 @@ public class UIManager : MonoSinglethon<UIManager>
     [SerializeField] private TextMeshProUGUI _score;
     [SerializeField] private Slider _gunPowerSlider;
 
+    private void Start()
+    {
+        _score.text = "score:" + PlayerPrefs.GetInt("Score");   // TODO: use events
+    }
+
     public void UpdateGunPower(float power)
     {
         _gunPowerSlider.value = power;

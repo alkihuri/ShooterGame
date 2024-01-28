@@ -9,6 +9,8 @@ public class GunController : MonoBehaviour
     [SerializeField, Range(0, 10)] private float power = 0;
     [SerializeField] private bool isPressed = false;
 
+    public float Power { get => power; set { power = value; UIManager.CurrentSimulation.UpdateGunPower(value); } }
+
     public void Innit(IMouseAxesInputService mouseAxesInputService, IGunService gunService)
     {
         this.mouseAxesInputService = mouseAxesInputService;
@@ -28,16 +30,20 @@ public class GunController : MonoBehaviour
 
     private IEnumerator Shoot()
     {
-        power = 0;
-        isPressed = true; 
+        Power = 0;
+        isPressed = true;
 
         while (mouseAxesInputService.GetFireButtonStillPressed())
         {
-            power += Time.deltaTime;
+            Power += Time.deltaTime;
+
+
             yield return new WaitForFixedUpdate();
         }
 
         isPressed = false;
-        gunService?.Shoot(power);
+        gunService?.Shoot(Power);
+
+        Power = 0;
     }
 }

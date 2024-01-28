@@ -11,7 +11,7 @@ public class Bootstrap
         var ballService = new BallService();
         var gunService = new GunService();
         var gateService = new GateService();
-
+        gateService.Innit(mouseAxesInputService);
 
         gunService.Innit(mouseAxesInputService, cameraService);
         ballService.Innit(mouseAxesInputService, cameraService);

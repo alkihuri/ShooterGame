@@ -46,9 +46,8 @@ public class BallService : IBallService
         View.transform.position = Gun.GetGunTransform().position; 
         View.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);   
 
-        var force = Mathf.Pow(power, 10);
-        force = Mathf.Clamp(force, 1, 50); 
-        force = 50;
+        var force = power * 100;
+        force = Mathf.Clamp(force, 10, 100);  
 
         Debug.DrawLine(View.transform.position, View.transform.position + direction * force, Color.green, 1);
 
